@@ -2,7 +2,7 @@
   <main class="p-1">
    <div class="container d-flex flex-wrap">
      <Movie 
-      v-for="movie in nameOfMovie" 
+      v-for="movie in listOfMovies" 
       :key="movie.id"
       :movieData="movie"
      />
@@ -21,7 +21,7 @@ export default {
   },
   props:{
     //è l'array movies
-    nameOfMovie: Array
+    listOfMovies: Array
   },
 }
 

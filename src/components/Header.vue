@@ -32,8 +32,8 @@ export default {
     //(il click scatena tutto) al click partità la chiamata, che verrà effettuata da App passatogli tramite un emit,poiche App rimarrà in ascolto di qualcosa trasmesso da Header
     getMovies(){
       console.log('click');
-      this.$emit('clickEvent', this.titleOfMovie);
       console.log('Header sta facendo partire un evento  ->', this.titleOfMovie);
+      this.$emit('clickEvent', this.titleOfMovie);
     }
   },
 

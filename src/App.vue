@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @clickEvent="searchMovies"/>
-    <Main  :nameOfMovie="movies"/>
+    <Main  :listOfMovies="movies"/>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   data(){
     return{
       apiKey: '0a07ff8bc4274aef9e9b7565c4c2e71d',
-      apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=0a07ff8bc4274aef9e9b7565c4c2e71d&query=la dolce vita& language=it-IT',
+      apiUrl: 'https://api.themoviedb.org/3/search/movie',
       movies: [],
 
     }
@@ -30,7 +30,7 @@ export default {
     searchMovies(titleOfMovie){
       console.log('App ha ricevuto dall evento clickEvent ->', titleOfMovie);
       //al click parte la chiamata 
-      axios.get(this.apiUrl)
+      axios.get(`${this.apiUrl}?api_key=${this.apiKey}&query=${titleOfMovie}&language=it-IT`)
       .then(response => {
         this.movies = response.data.results
         console.log('array movies ->', this.movies);
