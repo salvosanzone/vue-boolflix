@@ -1,7 +1,11 @@
 <template>
   <header class="container-fluid d-flex justify-content-between align-items-center">
     <div class="fs-3">boolflix</div>
-    <input  class="form-control" placeholder="Search">
+    <div class="d-flex align-items-center">
+      <input  class="form-control" placeholder="Search Movies">
+      <button type="button" class="btn btn-light d-flex align-items-center">Search</button>
+    </div>
+    
   </header>
 </template>
 
@@ -17,9 +21,14 @@ export default {
     background-color: black;
     color: #B30000;
     .form-control{
-      width: 100px;
+      width: 200px;
       height: 20px;
-    }
 
+    }
+    .btn{
+      height: 20px;
+      margin-left: 10px;
+
+    }
   }
 </style>
