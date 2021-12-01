@@ -2,8 +2,18 @@
   <header class="container-fluid d-flex justify-content-between align-items-center">
     <div class="fs-3">boolflix</div>
     <div class="d-flex align-items-center">
-      <input  class="form-control" placeholder="Search Movies">
-      <button type="button" class="btn btn-light d-flex align-items-center">Search</button>
+      <input v-model="titleOfMovie"
+        class="form-control" 
+        placeholder="Search Movie"
+      >
+      <button @click="getMovies"
+        type="button" 
+        class="btn 
+        btn-light d-flex 
+        align-items-center"
+      >
+        Search
+      </button>
     </div>
     
   </header>
@@ -11,7 +21,22 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  data(){
+    return{
+      //qui inserisco il titolo del film
+      titleOfMovie: ''
+    }
+  },
+  methods:{
+    //al click partità la chiamata, che verrà effettuata da App tramite un emit
+    getMovies(){
+      console.log('click');
+      this.$emit('getCallToApi', this.titleOfMovie)
+      console.log(this.$emit);
+    }
+  },
+
 }
 </script>
 
