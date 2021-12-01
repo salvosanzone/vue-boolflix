@@ -1,9 +1,7 @@
 <template>
   <main class="p-1">
    <div class="container d-flex flex-wrap">
-     <Movie
-      
-      />
+     <Movie />
    </div>
     
   </main>
@@ -17,7 +15,9 @@ export default {
   components: {
     Movie
   },
-  
+  props:{
+    //nameOfMovie: String
+  },
 }
 
 </script>

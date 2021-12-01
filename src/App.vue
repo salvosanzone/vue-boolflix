@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header />
-    <Main />
+    <Header @clickEvent="searchMovies"/>
+    <Main /> <!--:nameOfMovie="titleOfMovie"-->
   </div>
 </template>
 
@@ -21,24 +21,26 @@ export default {
     return{
       apiKey: '0a07ff8bc4274aef9e9b7565c4c2e71d',
       apiUrl: 'https://api.themoviedb.org/3/search/movie?api_key=0a07ff8bc4274aef9e9b7565c4c2e71d&query=la dolce vita& language=it-IT',
-      movies: []
+      movies: [],
+
     }
 },
   methods:{
-    //chiamata API
-    getApi(){
+    //la funzione riceve il parametro inviato dall'emit che puo avere un nome anche diverso
+    searchMovies(titleOfMovie){
+      console.log('App ha ricevuto dall evento clickEvent ->', titleOfMovie);
+      //al click parte la chiamata 
       axios.get(this.apiUrl)
-       .then(response => {
-         this.movies = response.data.results;
-         console.log('Il mio Array', this.movies);
-       })
-    .catch(error => {
-         console.log(error);
-       })
+      .then(response => {
+        this.movies = response.data.results
+        console.log('array movies ->', this.movies);
+      }).catch( error => {
+          console.log(error);
+      })
     }
   },
   mounted(){
-    this.getApi();
+    
   }
 }
 </script>
