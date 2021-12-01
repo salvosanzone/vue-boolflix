@@ -1,7 +1,11 @@
 <template>
   <main class="p-1">
    <div class="container d-flex flex-wrap">
-     <Movie />
+     <Movie 
+      v-for="movie in nameOfMovie" 
+      :key="movie.id"
+      :movieData="movie"
+     />
    </div>
     
   </main>
@@ -16,7 +20,8 @@ export default {
     Movie
   },
   props:{
-    //nameOfMovie: String
+    //è l'array movies
+    nameOfMovie: Array
   },
 }
 

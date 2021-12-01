@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header @clickEvent="searchMovies"/>
-    <Main /> <!--:nameOfMovie="titleOfMovie"-->
+    <Main  :nameOfMovie="movies"/>
   </div>
 </template>
 

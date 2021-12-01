@@ -2,10 +2,10 @@
      <div class="movie">
        <ul class="p-2">
          <li>titolo</li>
-         <!-- <li >Titolo: {{movieData.title}}</li>
+         <li >Titolo: {{movieData.title}}</li>
          <li>Titolo Originale: {{movieData.original_title}}</li>
          <li>Lingua: {{movieData.original_language}}</li>
-         <li>Voto: {{movieData.vote_average}}</li> -->
+         <li>Voto: {{movieData.vote_average}}</li> 
        </ul>
      </div>
   
@@ -15,7 +15,7 @@
 export default {
   name: 'Movie',
   props: {
-    //movieData : Object
+    movieData : Object
   }
 }
 </script>
