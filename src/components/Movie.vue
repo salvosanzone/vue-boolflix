@@ -1,4 +1,5 @@
 <template>
+
   <div class="movie">
     <div class="flip-card">
       <div class="flip-card-inner">
@@ -17,8 +18,8 @@
               <img
                 class="flag"
                 :src="
-                require(`../assets/img/${movieData.original_language}.png`)"
-                alt="movieData.original_language"
+                 require(`../assets/img/${movieData.original_language}.png`)"
+                 alt="movieData.original_language"
               />
             </li>
             <li>{{ movieData.vote_average }}</li>
@@ -27,6 +28,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -49,16 +51,14 @@ export default {
   height: 300px;
   width: calc(100% / 5 - 10px);
   margin: 5px;
+  overflow: hidden;
   ul li {
     list-style: none;
     color: white;
     .flag {
       width: 10%;
     }
-    .poster {
-      // width: 100px;
-      // height: 100px;
-    }
+    
   }
 }
 
@@ -83,26 +83,25 @@ export default {
   transform: rotateY(180deg);
 }
 
-.flip-card-front{
+.flip-card-front {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  
-    .poster{
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: fill;
+  object-fit: fill;
 
-    }
+.poster {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: fill;
 }
-.flip-card-back{
+}
+.flip-card-back {
   width: 100%;
   height: 100%;
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-
 
 .flip-card-front {
   background-color: #bbb;
