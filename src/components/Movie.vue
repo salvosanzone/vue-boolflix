@@ -23,6 +23,9 @@
               />
             </li>
             <li>{{ movieData.vote_average }}</li>
+            <li>
+              <p class="overflow-hidden">{{ movieData.overview }}</p>
+            </li>
           </ul>
         </div>
       </div>
@@ -47,7 +50,6 @@ export default {
 
 <style lang="scss">
 .movie {
-  border: 1px solid white;
   height: 300px;
   width: calc(100% / 5 - 10px);
   margin: 5px;
@@ -58,15 +60,18 @@ export default {
     .flag {
       width: 10%;
     }
+    p{
+      font-size: 10px;
+    }
     
   }
 }
 
 .flip-card {
-  background-color: transparent;
   height: 100%;
   width: 100%;
   perspective: 1000px;
+  background-color: transparent;
 }
 
 .flip-card-inner {
@@ -109,7 +114,7 @@ export default {
 }
 
 .flip-card-back {
-  background-color: #2980b9;
+  background-color: black;
   color: white;
   transform: rotateY(180deg);
 }
