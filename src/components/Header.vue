@@ -2,11 +2,13 @@
   <header class="container-fluid d-flex justify-content-between align-items-center">
     <div class="fs-3">boolflix</div>
     <div class="d-flex align-items-center">
-      <input v-model="titleOfMovie"
+      <input 
+        @keyup.enter="getMoviesTvSeries"
+        v-model="titleOfMovieTvSeries"
         class="form-control" 
         placeholder="Search Movie"
       >
-      <button @click="getMovies"
+      <button @click="getMoviesTvSeries"
         type="button" 
         class="btn 
         btn-light d-flex 
@@ -25,15 +27,17 @@ export default {
   data(){
     return{
       //qui inserisco il titolo del film
-      titleOfMovie: ''
+      titleOfMovieTvSeries: ''
     }
   },
   methods:{
-    //(il click scatena tutto) al click partità la chiamata, che verrà effettuata da App passatogli tramite un emit,poiche App rimarrà in ascolto di qualcosa trasmesso da Header
-    getMovies(){
+    //(il click scatena tutto) al click partità la chiamata
+    getMoviesTvSeries(){
       console.log('click');
-      console.log('Header sta facendo partire un evento  ->', this.titleOfMovie);
-      this.$emit('clickEvent', this.titleOfMovie);
+      console.log('Header sta facendo partire un evento  ->', this.titleOfMovieTvSeries);
+      this.$emit('clickEvent', this.titleOfMovieTvSeries);
+      //resetto l'input
+      this.titleOfMovieTvSeries = '';
     }
   },
 

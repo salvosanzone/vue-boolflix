@@ -1,28 +1,43 @@
 <template>
   <main class="p-1">
+    
    <div class="container d-flex flex-wrap">
      <Movie 
-      v-for="movie in listOfMovies" 
+      v-for="movie in movies" 
       :key="movie.id"
       :movieData="movie"
      />
    </div>
-    
+
+   <div class="container d-flex flex-wrap">
+     <Serie
+      v-for="serie in series" 
+      :key="serie.id"
+      :serieData="serie"
+     />
+   </div>
+
   </main>
  
 </template>
 
 <script>
-import Movie from './Movie.vue'
+import Movie from './Movie.vue';
+import Serie from './Serie.vue';
 export default {
   name: 'Main',
   components: {
-    Movie
+    Movie,
+    Serie
   },
   props:{
-    //è l'array movies
-    listOfMovies: Array
+    movies: Array,
+    series: Array
   },
+  data(){
+    return{
+    }
+  }
 }
 
 </script>

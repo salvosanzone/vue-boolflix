@@ -1,11 +1,11 @@
 <template>
 
-     <div class="movie">
+     <div class="serie">
        <ul class="p-2">
-         <li>{{movieData.title}}</li>
-         <li>{{movieData.original_title}}</li>
-         <li>{{movieData.original_language}}</li>
-         <li>{{movieData.vote_average}}</li> 
+         <li>{{serieData.name}}</li>
+         <li>{{serieData.original_name}}</li>
+         <li>{{serieData.original_language}}</li>
+         <li>{{serieData.vote_average}}</li> 
        </ul>
      </div>
   
@@ -13,16 +13,16 @@
 
 <script>
 export default {
-  name: 'Movie',
+  name: 'Serie',
   props: {
-    movieData : Object
+    serieData : Object
   }
 }
 </script>
 
 <style lang="scss">
-  .movie{
-    border: 1px solid white;
+  .serie{
+    border: 1px solid black;
     height: 300px;
     width: calc(100% / 5 - 10px);
     margin: 5px;

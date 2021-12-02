@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header @clickEvent="searchMovies"/>
-    <Main  :listOfMovies="movies"/>
+    <Header @clickEvent="searchMoviesTvSeries"/>
+    <Main :movies="ListOfmovies" :series="ListOfSeries"/>
   </div>
 </template>
 
@@ -19,29 +19,46 @@ export default {
   },
   data(){
     return{
-      apiKey: '0a07ff8bc4274aef9e9b7565c4c2e71d',
-      apiUrl: 'https://api.themoviedb.org/3/search/movie',
-      movies: [],
-
+      apiUrlMovie: 'https://api.themoviedb.org/3/search/movie',
+      apiUrlTv: 'https://api.themoviedb.org/3/search/tv',
+      params:{
+        api_key: '0a07ff8bc4274aef9e9b7565c4c2e71d',
+        language: 'it-IT',
+        query: '',
+      },
+      ListOfmovies: [],
+      ListOfSeries: [],
     }
 },
   methods:{
-    //la funzione riceve il parametro inviato dall'emit che puo avere un nome anche diverso
-    searchMovies(titleOfMovie){
-      console.log('App ha ricevuto dall evento clickEvent ->', titleOfMovie);
-      //al click parte la chiamata 
-      axios.get(`${this.apiUrl}?api_key=${this.apiKey}&query=${titleOfMovie}&language=it-IT`)
+    //la funzione riceve il parametro inviato dall'emit (puo avere un nome anche diverso)
+    searchMoviesTvSeries(titleOfMovieTvSeries){
+
+      //MOVIES
+      console.log('App ha ricevuto dall evento clickEvent ->', titleOfMovieTvSeries);
+      this.params.query = titleOfMovieTvSeries;
+      axios.get(this.apiUrlMovie,{params:this.params})
       .then(response => {
-        this.movies = response.data.results
-        console.log('array movies ->', this.movies);
+        this.ListOfmovies = response.data.results
+        console.log('ListOfmovies ->',response.data.results);
+      }).catch( error => {
+          console.log(error);
+      }),
+
+
+      //TV SERIES
+      axios.get(this.apiUrlTv,{params:this.params})
+      .then(response => {
+        this.ListOfSeries = response.data.results
+        console.log('ListOfSeries ->',response.data.results);
       }).catch( error => {
           console.log(error);
       })
-    }
-  },
-  mounted(){
+    },
     
-  }
+
+  },
+  
 }
 </script>
 
