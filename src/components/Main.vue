@@ -45,20 +45,7 @@ export default {
 
     }
   },
-  methods: {
-    //creo una funzione in cui do come parametro item(il film o la serie)
-    //condizione if, se item.original_language include IT allora item.original_language = alla bandiera dell'italia, stessa cosa per quella dell' inghilterra
-    //se item.original_language non include IT o EN allora stampa l'array movies
-
-    filterdList(item){
-      if(item.original_language != 'it'){
-        return this.movies;
-      }
-      return this.movies.filter(movie => {
-        return movie.original_language === 'it.png';
-      })
-    }
-  }
+ 
   }
 
 

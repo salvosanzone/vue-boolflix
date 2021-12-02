@@ -4,7 +4,11 @@
        <ul class="p-2">
          <li>{{serieData.name}}</li>
          <li>{{serieData.original_name}}</li>
-         <li>{{serieData.original_language}}</li>
+         <li>
+           <img
+            v-if="getFlag"
+            :src="require(`../assets/img/${serieData.original_language}.png`)" alt="serieData.original_language">
+         </li>
          <li>{{serieData.vote_average}}</li> 
        </ul>
      </div>

@@ -4,9 +4,9 @@
        <ul class="p-2">
          <li>{{movieData.title}}</li>
          <li>{{movieData.original_title}}</li>
-         <img :src="`../assets/img/${movieData.original_language}.png`" alt="movieData.original_language">
-         <!-- ../assets/img/[movieData.original_language].png -->
-         <!-- ../assets/img/[movieData.original_language].png -->
+         <li>
+           <img :src="require(`../assets/img/${movieData.original_language}.png`)" alt="movieData.original_language">
+         </li>
          <li>{{movieData.vote_average}}</li>
        </ul>
      </div>
@@ -21,7 +21,7 @@ export default {
   },
   data(){
     return{
-      urlImg: 'https://image.tmdb.org/t/p/w342/'
+      urlImg: 'https://image.tmdb.org/t/p/w342/',
     }
     
   }
@@ -37,6 +37,9 @@ export default {
     ul li{
       list-style: none;
       color: white;
+      img{
+        width: 10%;
+      }
     }
   }
 </style>
