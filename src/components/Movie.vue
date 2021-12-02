@@ -4,8 +4,10 @@
        <ul class="p-2">
          <li>{{movieData.title}}</li>
          <li>{{movieData.original_title}}</li>
-         <li>{{movieData.original_language}}</li>
-         <li>{{movieData.vote_average}}</li> 
+         <img :src="`../assets/img/${movieData.original_language}.png`" alt="movieData.original_language">
+         <!-- ../assets/img/[movieData.original_language].png -->
+         <!-- ../assets/img/[movieData.original_language].png -->
+         <li>{{movieData.vote_average}}</li>
        </ul>
      </div>
   
@@ -16,6 +18,12 @@ export default {
   name: 'Movie',
   props: {
     movieData: Object
+  },
+  data(){
+    return{
+      urlImg: 'https://image.tmdb.org/t/p/w342/'
+    }
+    
   }
 }
 </script>

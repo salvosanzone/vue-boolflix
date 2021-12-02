@@ -6,7 +6,7 @@
     </h2>
     <div class="container d-flex flex-wrap">
      <Movie 
-      v-for="movie in filterdList" 
+      v-for="movie in movies" 
       :key="movie.id"
       :movieData="movie"
      />
