@@ -15,7 +15,7 @@
 export default {
   name: 'Movie',
   props: {
-    movieData : Object
+    movieData: Object
   }
 }
 </script>

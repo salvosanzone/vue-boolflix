@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
   .serie{
-    border: 1px solid black;
+    border: 1px solid white;
     height: 300px;
     width: calc(100% / 5 - 10px);
     margin: 5px;
