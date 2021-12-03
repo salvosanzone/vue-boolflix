@@ -1,34 +1,40 @@
 <template>
 
-  <div class="movie">
+  <div class="itemData">
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img
+            v-if="itemData.poster_path"
             class="poster"
-            :src="`${this.urlImg}${movieData.poster_path}`"
-            :alt="movieData.poster_path"
+            :src="`${this.urlImg}${itemData.poster_path}`"
+            :alt="itemData.title || itemData.name"
           />
+          <img v-else 
+            class="poster" 
+            src="../assets/img/not-found.jpg" 
+            :alt="itemData.name"
+          >
         </div>
         <div class="flip-card-back">
           <ul class="p-2">
-            <li>{{ movieData.title }}</li>
-            <li>{{ movieData.original_title }}</li>
+            <li>{{ itemData.title || itemData.name  }}</li>
+            <li>{{ itemData.original_title || itemData.original_name}}</li>
             <li>
             <div>
               <img
-                v-if="flags.includes(movieData.original_language)"
+                v-if="flags.includes(itemData.original_language)"
                 class="flag"
                 :src="
-                require(`../assets/img/${movieData.original_language}.png`)"
-                :alt="movieData.original_language"
+                require(`../assets/img/${itemData.original_language}.png`)"
+                :alt="itemData.original_language"
               />
-              <li v-else>{{movieData.original_language}}</li>
+              <li v-else>{{itemData.original_language}}</li>
             </div> 
             </li>
-            <li>{{ movieData.vote_average }}</li>
+            <li>{{ itemData.vote_average }}</li>
             <li>
-              <p class="overview overflow-auto">{{ movieData.overview }}</p>
+              <p class="overview overflow-auto">{{ itemData.overview }}</p>
             </li>
           </ul>
         </div>
@@ -40,9 +46,9 @@
 
 <script>
 export default {
-  name: "Movie",
+  name: "Card",
   props: {
-    movieData: Object,
+    itemData: Object,
   },
   data() {
     return {
@@ -54,7 +60,7 @@ export default {
 </script>
 
 <style lang="scss">
-.movie {
+.itemData {
   height: 300px;
   width: calc(100% / 5 - 10px);
   margin: 5px;

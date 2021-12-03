@@ -1,44 +1,30 @@
 <template>
   <main class="p-1">
 
-    <h2 class="m-5" v-if="movies != ''">
-      movies
-    </h2>
+     <h2 class="m-5" v-if="searchList != ''">
+      {{titleSection}}
+    </h2> 
     <div class="container d-flex flex-wrap">
-     <Movie 
-      v-for="movie in movies" 
-      :key="movie.id"
-      :movieData="movie"
-     />
-    </div>
-
-    <h2 class="m-5" v-if="series != ''">
-      series tv
-    </h2>
-    <div class="container d-flex flex-wrap">
-     <Serie
-      v-for="serie in series" 
-      :key="serie.id"
-      :serieData="serie"
+     <Card 
+      v-for="item in searchList" 
+      :key="item.id"
+      :itemData="item"
      />
     </div>
 
   </main>
- 
 </template>
 
 <script>
-import Movie from './Movie.vue';
-import Serie from './Serie.vue';
+import Card from './Card.vue';
 export default {
   name: 'Main',
   components: {
-    Movie,
-    Serie
+    Card,
   },
   props:{
-    movies: Array,
-    series: Array
+    searchList: Array,
+    titleSection: String
   },
   data(){
     return{
