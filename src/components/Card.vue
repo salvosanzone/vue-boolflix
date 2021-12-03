@@ -10,27 +10,29 @@
             :src="`${this.urlImg}${itemData.poster_path}`"
             :alt="itemData.title || itemData.name"
           />
-          <img v-else 
-            class="poster" 
-            src="../assets/img/not-found.jpg" 
+          <img
+            v-else
+            class="poster"
+            src="../assets/img/not-found.jpg"
             :alt="itemData.name"
-          >
+          />
         </div>
         <div class="flip-card-back">
           <ul class="p-2">
-            <li>{{ itemData.title || itemData.name  }}</li>
-            <li>{{ itemData.original_title || itemData.original_name}}</li>
+            <li>{{ itemData.title || itemData.name }}</li>
+            <li>{{ itemData.original_title || itemData.original_name }}</li>
             <li>
-            <div>
-              <img
-                v-if="flags.includes(itemData.original_language)"
-                class="flag"
-                :src="
-                require(`../assets/img/${itemData.original_language}.png`)"
-                :alt="itemData.original_language"
-              />
-              <li v-else>{{itemData.original_language}}</li>
-            </div> 
+              <div>
+                <img
+                  v-if="flags.includes(itemData.original_language)"
+                  class="flag"
+                  :src="
+                    require(`../assets/img/${itemData.original_language}.png`)
+                  "
+                  :alt="itemData.original_language"
+                />
+                <li v-else>{{ itemData.original_language }}</li>
+              </div>
             </li>
             <li>{{ itemData.vote_average }}</li>
             <li>
@@ -41,7 +43,7 @@
       </div>
     </div>
   </div>
-
+  
 </template>
 
 <script>
@@ -53,7 +55,7 @@ export default {
   data() {
     return {
       urlImg: "https://image.tmdb.org/t/p/w342/",
-      flags:['it','en']
+      flags: ["it", "en"],
     };
   },
 };
@@ -73,10 +75,9 @@ export default {
     .flag {
       width: 10%;
     }
-    p{
+    p {
       font-size: 10px;
     }
-    
   }
 }
 
@@ -107,10 +108,10 @@ export default {
   backface-visibility: hidden;
   object-fit: fill;
 
-.poster {
-  max-width: 100%;
-  max-height: 100%;
-}
+  .poster {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }
 .flip-card-back {
   width: 100%;
@@ -131,7 +132,7 @@ export default {
   transform: rotateY(180deg);
 }
 
-.overview{
+.overview {
   height: 150px;
 }
 </style>

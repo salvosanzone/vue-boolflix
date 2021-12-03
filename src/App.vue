@@ -32,7 +32,7 @@ export default {
     }
 },
   methods:{
-    //la funzione riceve il parametro inviato dall'emit (puo avere un nome anche diverso)
+    //la funzione riceve il parametro inviato dall'emit (puo avere un nome anche diverso) e fa due chiamate
     searchMoviesTvSeries(titleOfMovieTvSeries){
 
       //MOVIES
@@ -59,6 +59,9 @@ export default {
     
 
   },
+  // mounted(){
+  //   axios.get('https://api.themoviedb.org/3/search/movie')
+  // }
   
 }
 </script>
