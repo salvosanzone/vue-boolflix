@@ -4,11 +4,12 @@
        <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
-          <img
+          <img v-if="serieData.poster_path"
             class="poster"
             :src="`${this.urlImg}${serieData.poster_path}`"
-            alt="movieData.poster_path"
+            :alt="serieData.poster_path"
           />
+          <img class="poster" src="../assets/img/not-found.jpg" :alt="serieData.name">
         </div>
         <div class="flip-card-back">
           <ul class="p-2">
@@ -19,12 +20,12 @@
                 class="flag"
                 :src="
                  require(`../assets/img/${serieData.original_language}.png`)"
-                 alt="serieData.original_language"
+                 :alt="serieData.original_language"
               />
             </li>
             <li>{{ serieData.vote_average }}</li>
             <li>
-              <p class="overflow-hidden">{{ movieData.overview }}</p>
+              <p class="overview overflow-auto">{{ serieData.overview }}</p>
             </li>
           </ul>
         </div>
@@ -39,6 +40,12 @@ export default {
   name: 'Serie',
   props: {
     serieData : Object
+  },
+  data(){
+    return{
+      urlImg: "https://image.tmdb.org/t/p/w342/",
+
+    }
   }
 }
 </script>
@@ -48,6 +55,9 @@ export default {
     height: 300px;
     width: calc(100% / 5 - 10px);
     margin: 5px;
+    border: 1px solid white;
+    overflow: hidden;
+
     ul li{
       list-style: none;
       color: white;
@@ -86,9 +96,10 @@ export default {
 .poster {
   max-width: 100%;
   max-height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 }
+
 .flip-card-back {
   width: 100%;
   height: 100%;
@@ -106,5 +117,8 @@ export default {
   background-color: black;
   color: white;
   transform: rotateY(180deg);
+}
+.overview{
+  height: 150px;
 }
 </style>

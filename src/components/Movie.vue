@@ -7,7 +7,7 @@
           <img
             class="poster"
             :src="`${this.urlImg}${movieData.poster_path}`"
-            alt="movieData.poster_path"
+            :alt="movieData.poster_path"
           />
         </div>
         <div class="flip-card-back">
@@ -15,16 +15,20 @@
             <li>{{ movieData.title }}</li>
             <li>{{ movieData.original_title }}</li>
             <li>
+            <div>
               <img
+                v-if="flags.includes(movieData.original_language)"
                 class="flag"
                 :src="
-                 require(`../assets/img/${movieData.original_language}.png`)"
-                 alt="movieData.original_language"
+                require(`../assets/img/${movieData.original_language}.png`)"
+                :alt="movieData.original_language"
               />
+              <li v-else>{{movieData.original_language}}</li>
+            </div> 
             </li>
             <li>{{ movieData.vote_average }}</li>
             <li>
-              <p class="overflow-hidden">{{ movieData.overview }}</p>
+              <p class="overview overflow-auto">{{ movieData.overview }}</p>
             </li>
           </ul>
         </div>
@@ -43,6 +47,7 @@ export default {
   data() {
     return {
       urlImg: "https://image.tmdb.org/t/p/w342/",
+      flags:['it','en']
     };
   },
 };
@@ -54,6 +59,8 @@ export default {
   width: calc(100% / 5 - 10px);
   margin: 5px;
   overflow: hidden;
+  border: 1px solid white;
+
   ul li {
     list-style: none;
     color: white;
@@ -97,7 +104,6 @@ export default {
 .poster {
   max-width: 100%;
   max-height: 100%;
-  object-fit: fill;
 }
 }
 .flip-card-back {
@@ -117,5 +123,9 @@ export default {
   background-color: black;
   color: white;
   transform: rotateY(180deg);
+}
+
+.overview{
+  height: 150px;
 }
 </style>

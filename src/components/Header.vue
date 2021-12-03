@@ -46,8 +46,8 @@ export default {
 
 <style lang="scss">
   header{
-    height: 50px;
-    background-color: black;
+    height: 60px;
+    background: linear-gradient(black, #424242);
     color: #B30000;
     .form-control{
       width: 200px;

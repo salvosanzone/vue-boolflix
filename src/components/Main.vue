@@ -53,8 +53,8 @@ export default {
 
 <style lang="scss">
   main{
-    min-height: calc(100vh - 50px);
-    background-color: #434343;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(#424242, #434343);
   }
    
   
